@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MotoGP Game</title>
+    <style>
+        body{
+            margin:0;
+            background:#333;
+            overflow:hidden;
+        }
+
+        #track{
+            width:400px;
+            height:100vh;
+            background:#666;
+            margin:auto;
+            position:relative;
+            border-left:10px solid white;
+            border-right:10px solid white;
+        }
+
+        #bike{
+            width:50px;
+            height:80px;
+            background:red;
+            position:absolute;
+            bottom:20px;
+            left:175px;
+            border-radius:10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="track">
+    <div id="bike"></div>
+</div>
+
+<script>
+let bike = document.getElementById("bike");
+let posisi = 175;
+
+document.addEventListener("keydown", function(e){
+
+    if(e.key === "ArrowLeft"){
+        posisi -= 20;
+    }
+
+    if(e.key === "ArrowRight"){
+        posisi += 20;
+    }
+
+    posisi = Math.max(0, Math.min(350, posisi));
+
+    bike.style.left = posisi + "px";
+});
+</script>
+
+</body>
+</html>
